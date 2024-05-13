@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suresh-nginx-deployment
+  labels:
+    app: suresh-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: suresh-nginx
+  template:
+    metadata:
+      labels:
+        app: suresh-nginx
+    spec:
+      containers:
+        - name: suresh-nginx
+          image: sureshattaluri/my-nginx:v0.0.2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: suresh-docker-registry-creds
