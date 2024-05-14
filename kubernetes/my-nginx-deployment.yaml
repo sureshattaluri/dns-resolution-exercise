@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: suresh-nginx
-          image: sureshattaluri/my-nginx:v0.0.2
+          image: sureshattaluri/my-nginx:v0.2.0
           ports:
             - containerPort: 80
       imagePullSecrets:
