@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apple-nginx-dev
+  namespace: apple-nginx-dev
+  labels:
+    app: apple-nginx-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apple-nginx-dev
+  template:
+    metadata:
+      labels:
+        app: apple-nginx-dev
+    spec:
+      containers:
+        - name: apple-nginx-dev
+          image: sureshattaluri/apple-suresh-nginx:v0.0.2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: apple-docker-registry-creds

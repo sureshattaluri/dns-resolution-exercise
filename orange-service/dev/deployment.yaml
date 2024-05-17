@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-nginx-dev
+  namespace: orange-nginx-dev
+  labels:
+    app: orange-nginx-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orange-nginx-dev
+  template:
+    metadata:
+      labels:
+        app: orange-nginx-dev
+    spec:
+      containers:
+        - name: orange-nginx-dev
+          image: sureshattaluri/orange-suresh-nginx:v0.0.2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: suresh-docker-registry-creds

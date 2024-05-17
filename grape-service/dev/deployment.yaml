@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grape-nginx-dev
+  namespace: grape-nginx-dev
+  labels:
+    app: grape-nginx-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grape-nginx-dev
+  template:
+    metadata:
+      labels:
+        app: grape-nginx-dev
+    spec:
+      containers:
+        - name: grape-nginx-dev
+          image: sureshattaluri/grape-suresh-nginx:v0.0.2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: suresh-docker-registry-creds
