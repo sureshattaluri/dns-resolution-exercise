@@ -32,3 +32,15 @@ dev-apply-service:
 
 .PHONY: dev-kube-apply
 dev-kube-apply: dev-namespace dev-apply-deployment dev-apply-service
+
+.PHONY: prod-kube-destory
+prod-kube-destory:
+	kubectl delete service -n orange-nginx orange-nginx
+	kubectl delete deployment -n orange-nginx orange-nginx
+	kubectl delete namespace orange-nginx
+
+.PHONY: dev-kube-destory
+dev-kube-destory:
+	kubectl delete service -n orange-nginx-dev orange-nginx-dev
+	kubectl delete deployment -n orange-nginx-dev orange-nginx-dev
+	kubectl delete namespace orange-nginx-dev

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: grape-nginx-dev
-          image: sureshattaluri/grape-suresh-nginx:v0.0.2
+          image: sureshattaluri/grape-suresh-nginx:v0.0.3
           ports:
             - containerPort: 80
       imagePullSecrets:

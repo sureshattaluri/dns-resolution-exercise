@@ -32,3 +32,15 @@ dev-apply-service:
 
 .PHONY: dev-kube-apply
 dev-kube-apply: dev-namespace dev-apply-deployment dev-apply-service
+
+.PHONY: prod-kube-destory
+prod-kube-destory:
+	kubectl delete service -n apple-nginx apple-nginx
+	kubectl delete deployment -n apple-nginx apple-nginx
+	kubectl delete namespace apple-nginx
+
+.PHONY: dev-kube-destory
+dev-kube-destory:
+	kubectl delete service -n apple-nginx-dev apple-nginx-dev
+	kubectl delete deployment -n apple-nginx-dev apple-nginx-dev
+	kubectl delete namespace apple-nginx-dev

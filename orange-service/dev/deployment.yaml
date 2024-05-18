@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: orange-nginx-dev
-          image: sureshattaluri/orange-suresh-nginx:v0.0.2
+          image: sureshattaluri/orange-suresh-nginx:v0.0.3
           ports:
             - containerPort: 80
       imagePullSecrets:

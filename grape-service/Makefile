@@ -32,3 +32,15 @@ dev-apply-service:
 
 .PHONY: dev-kube-apply
 dev-kube-apply: dev-namespace dev-apply-deployment dev-apply-service
+
+.PHONY: prod-kube-destory
+prod-kube-destory:
+	kubectl delete service -n grape-nginx grape-nginx
+	kubectl delete deployment -n grape-nginx grape-nginx
+	kubectl delete namespace grape-nginx
+
+.PHONY: dev-kube-destory
+dev-kube-destory:
+	kubectl delete service -n grape-nginx-dev grape-nginx-dev
+	kubectl delete deployment -n grape-nginx-dev grape-nginx-dev
+	kubectl delete namespace grape-nginx-dev
