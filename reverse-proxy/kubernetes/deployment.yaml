@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suresh-reverse-proxy-nginx
+  namespace: suresh-reverse-proxy-nginx
+  labels:
+    app: suresh-reverse-proxy-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: suresh-reverse-proxy-nginx
+  template:
+    metadata:
+      labels:
+        app: suresh-reverse-proxy-nginx
+    spec:
+      containers:
+        - name: suresh-reverse-proxy-nginx
+          image: sureshattaluri/suresh-reverse-proxy-nginx:v0.0.2
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: suresh-docker-registry-creds
