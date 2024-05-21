@@ -7,7 +7,12 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
+      name: http
       targetPort: 80
+      protocol: TCP
+    - port: 443
+      name: https 
+      targetPort: 443
       protocol: TCP
   selector:
     app: suresh-reverse-proxy-nginx
