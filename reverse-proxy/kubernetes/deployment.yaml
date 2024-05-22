@@ -17,6 +17,14 @@ spec:
     spec:
       containers:
         - name: suresh-reverse-proxy-nginx
-          image: sureshattaluri/suresh-reverse-proxy-nginx:v0.0.4
+          image: sureshattaluri/suresh-reverse-proxy-nginx:v0.0.5
+          volumeMounts:
+            - name: ssl-certificates
+              mountPath: /etc/nginx/ssl
+              readOnly: true
+      volumes:
+        - name: ssl-certificates
+          configMap:
+            name: suresh-nginx-ssl-certs
       imagePullSecrets:
         - name: suresh-docker-registry-creds
